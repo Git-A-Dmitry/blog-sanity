@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-}
+  images: {
+    domains: ['links.google.com', 'cdn.sanity.io'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
