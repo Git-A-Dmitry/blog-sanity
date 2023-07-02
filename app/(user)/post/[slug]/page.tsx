@@ -4,12 +4,16 @@ import urlFor from '@/lib/urlFor';
 import groq from 'groq';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
+import { RichTextComponents } from '@/components/RichTextComponents';
 
 type Props = {
   params: {
     slug: string;
   };
 };
+
+// revalidate the page every 60 seconds
+export const revalidate = 60;
 
 async function Post({ params: { slug } }: Props) {
   const query = groq`
@@ -27,7 +31,7 @@ async function Post({ params: { slug } }: Props) {
 
   return (
     // <div>Post: {slug}</div>
-    <article className='px-10 pb-28'>
+    <article className='px-10 pb-28 bg-slate-300'>
       <section className='space-y-2 border border-[#F7AB0A] text-white'>
         <div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
           <div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
@@ -39,7 +43,7 @@ async function Post({ params: { slug } }: Props) {
             />
           </div>
 
-          <section className='p-5 bg-[#F7AB0A] w-full'>
+          <section className='mt-5 p-5 bg-[#F7AB0A] w-full'>
             <div className='flex flex-col md:flex-row justify-between gap-y-5'>
               <div>
                 <h1 className='text-4xl font-extrabold'>{post.title}</h1>
@@ -86,8 +90,11 @@ async function Post({ params: { slug } }: Props) {
         </div>
       </section>
 
-      <PortableText value={post.body} />
-      {/* <PortableText value={post.body} components={RichTextComponents} /> */}
+      {/* <PortableText value={post.body} /> */}
+      <PortableText
+        value={post.body}
+        components={RichTextComponents}
+      />
     </article>
   );
 }

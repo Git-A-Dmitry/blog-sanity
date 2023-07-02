@@ -5,8 +5,9 @@ export default function Header() {
   return (
     <header className='flex items-center justify-between space-x-2 font-bold px-10 py-5'>
       <div className='flex items-center space-x-2'>
-        <Link href='/'>Link</Link>
-        <h1 className='text-3xl text-cyan-600'>Header</h1>
+        <Link href='/'>
+          <h1 className='text-3xl text-cyan-600'>Home</h1>
+        </Link>
       </div>
 
       <div>
