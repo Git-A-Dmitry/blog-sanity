@@ -6,7 +6,7 @@ export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className='relative w-full h-96 m-10 mx-auto'>
+        <div className='relative w-3/4 h-80 m-0 mx-auto md:mt-4'>
           <Image
             className='object-contain'
             src={urlFor(value).url()}
@@ -29,16 +29,16 @@ export const RichTextComponents = {
   // prettier-ignore
   block: {
     h1: ({children}: any) => (
-      <h1 className='text-5xl py-10 font-bold'>{children}</h1>
+      <h1 className='lg:w-3/4 ml-auto mr-auto text-5xl py-10 font-bold'>{children}</h1>
     ),
     h2: ({children}: any) => (
-      <h2>{children}</h2>
+      <h2 className='lg:w-3/4 ml-auto mr-auto'>{children}</h2>
     ),
     h3: ({children}: any) => (
-      <h3 className='text-3xl text-center py-10 font-bold'>{children}</h3>
+      <h3 className='lg:w-3/4 ml-auto mr-auto text-3xl text-center py-10 font-bold'>{children}</h3>
     ),
     h4: ({children}: any) => (
-      <h4 className='text-2xl py-10 font-bold'>{children}</h4>
+      <h4 className='lg:w-3/4 ml-auto mr-auto text-2xl py-4 font-bold'>{children}</h4>
     ),
 
     normal: ({children}: any) => (
@@ -47,7 +47,7 @@ export const RichTextComponents = {
 
 
     blockquote: ({children}: any) => (
-      <blockquote className='border-l-[#F7AB0A] border-l-4 pl-5 py-5 my-5'>{children}</blockquote>
+      <blockquote className='lg:w-3/4 ml-auto mr-auto border-l-[#F7AB0A] border-l-4 pl-5 py-5 my-5'>{children}</blockquote>
     )
   },
 

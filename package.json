@@ -1,5 +1,6 @@
 {
   "name": "blog-sanity",
+  "author": "Dmitry Ananin",
   "version": "0.1.0",
   "private": true,
   "scripts": {

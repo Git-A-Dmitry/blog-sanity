@@ -1,8 +1,8 @@
+import Image from 'next/image';
 import { client } from '@/lib/sanity.client';
 import urlFor from '@/lib/urlFor';
 // import category from '@/schemas/category';
 import groq from 'groq';
-import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { RichTextComponents } from '@/components/RichTextComponents';
 
@@ -31,11 +31,13 @@ async function Post({ params: { slug } }: Props) {
 
   return (
     // <div>Post: {slug}</div>
-    <article className='px-10 pb-28 bg-slate-300'>
-      <section className='space-y-2 border border-[#F7AB0A] text-white'>
+    <article className='px-10 pb-28 bg-slate-200'>
+      <section className='space-y-2 text-white'>
+        {/* <section className='space-y-2 border border-[#F7AB0A] text-white'> */}
         <div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
-          <div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
-            <Image //
+          <div className='absolute top-0 w-full h-full opacity-6 p-10'>
+            {/* <div className='absolute top-0 w-full h-full opacity-6 blur-sm p-10'> */}
+            <Image
               className='object-cover object-center mx-auto'
               src={urlFor(post.mainImage).url()}
               alt={post.author.name}
@@ -43,7 +45,8 @@ async function Post({ params: { slug } }: Props) {
             />
           </div>
 
-          <section className='mt-5 p-5 bg-[#F7AB0A] w-full'>
+          <section className='mt-2 p-5 w-full rounded-md z-10'>
+            {/* <section className='mt-2 p-5 bg-[#F7AB0A] w-full'> */}
             <div className='flex flex-col md:flex-row justify-between gap-y-5'>
               <div>
                 <h1 className='text-4xl font-extrabold'>{post.title}</h1>
@@ -57,13 +60,13 @@ async function Post({ params: { slug } }: Props) {
                 </p>
               </div>
 
-              <div className='flex items-center space-x-2'>
+              <div className='flex items-center space-x-3'>
                 <Image //
                   className='rounded-full'
                   src={urlFor(post.author.image).url()}
                   alt={post.author.name}
-                  height={40}
-                  width={40}
+                  height={70}
+                  width={70}
                 />
 
                 <div className='w-44'>
