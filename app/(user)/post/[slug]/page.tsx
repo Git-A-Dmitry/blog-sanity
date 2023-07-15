@@ -93,7 +93,6 @@ async function Post({ params: { slug } }: Props) {
         </div>
       </section>
 
-      {/* <PortableText value={post.body} /> */}
       <PortableText
         value={post.body}
         components={RichTextComponents}

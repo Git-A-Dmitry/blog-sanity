@@ -8,7 +8,7 @@ export const RichTextComponents = {
       return (
         <div className='relative w-3/4 h-80 m-0 mx-auto md:mt-4'>
           <Image
-            className='object-contain'
+            className='object-cover rounded'
             src={urlFor(value).url()}
             alt='Blog Post Image'
             fill
@@ -51,20 +51,21 @@ export const RichTextComponents = {
     )
   },
 
-  // prettier-ignore
   marks: {
-    link: ({children, value}: any) => {
-      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+    link: ({ children, value }: any) => {
+      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
 
       return (
-        <link //
+        <Link
           href={value.href}
           rel={rel}
-          className='underline decoration-[#F7AB0A] hover:decoration-black'
+          target='_blank'
+          className='text-xs text-blue-600 underline decoration-blue-600 hover:text-blue-800 hover:decoration-blue-800'
+          // className=underline decoration-[#64748b] hover:decoration-black'
         >
           {children}
-        </link>
+        </Link>
       );
-    }
+    },
   },
 };
