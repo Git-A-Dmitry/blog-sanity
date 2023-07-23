@@ -145,7 +145,7 @@ async function Post({ params: { slug } }: Props) {
               <ClientCodeBlock
                 key={index}
                 node={block}
-                style={dracula}
+                // style={dracula}
               />
             );
           } else {
