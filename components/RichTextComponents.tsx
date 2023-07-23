@@ -6,7 +6,7 @@ export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className='relative w-3/4 h-80 m-0 mx-auto md:mt-4'>
+        <div className='relative lg:w-3/4 h-80 m-0 mx-auto md:mt-4'>
           <Image
             className='object-cover rounded'
             src={urlFor(value).url()}
@@ -42,7 +42,7 @@ export const RichTextComponents = {
     ),
 
     normal: ({children}: any) => (
-      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.4rem] text-slate-200'>{children}</p>
+      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.5rem] text-slate-200'>{children}</p>
     ),
 
 

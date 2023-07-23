@@ -1,5 +1,6 @@
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
+import Hero from '@/components/Hero';
 import '../globals.css';
 
 export const metadata = {
@@ -10,11 +11,16 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className='max-w-7xl mx-auto'>
+      {/* <body className='max-w-7xl mx-auto'> */}
+      <body>
         <Header />
-        <Banner />
+        {/* <Banner /> */}
+        <Hero />
         {/* children is what's in page.tsx and below */}
-        {children}
+        <div className='max-w-7xl mx-auto'>
+          <Banner />
+          {children}
+        </div>
       </body>
     </html>
   );
