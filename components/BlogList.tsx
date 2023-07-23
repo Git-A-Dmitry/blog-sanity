@@ -2,9 +2,10 @@ import urlFor from '@/lib/urlFor';
 import Image from 'next/image';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 import ClientSideRoute from './ClientSideRoute';
+import { PostData } from '@/typings';
 
 type Props = {
-  posts: Post[];
+  posts: PostData[];
 };
 
 export default function BlogList({ posts }: Props) {

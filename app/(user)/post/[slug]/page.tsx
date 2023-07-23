@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import { PostData } from '@/typings';
 import { client } from '@/lib/sanity.client';
 import urlFor from '@/lib/urlFor';
 import groq from 'groq';
 import { PortableText } from '@portabletext/react';
 import { RichTextComponents } from '@/components/RichTextComponents';
-import BlockContent from '@sanity/block-content-to-react';
+// import BlockContent from '@sanity/block-content-to-react';
 // import Prism from 'prismjs';
 // import 'prismjs/components/prism-javascript';
 // import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -16,49 +17,6 @@ type Props = {
     slug: string;
   };
 };
-
-// interface CodeInputProps {
-//   code: string;
-//   language: string;
-// }
-
-// const CodeInput: React.FC<CodeInputProps> = (props) => {
-//   const { code, language } = props;
-//   return (
-//     <SyntaxHighlighter
-//       language={language}
-//       style={a11yDark}
-//     >
-//       {code}
-//     </SyntaxHighlighter>
-//   );
-// };
-
-// const CodeBlock = ({ node }: { node: any }) => {
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       Prism.highlightAll();
-//     }
-//   }, []);
-
-//   if (!node || !node.code) {
-//     return null;
-//   }
-
-//   return (
-//     <pre className='lg:w-3/4 ml-auto mr-auto bg-slate-900 p-8 rounded-md text-lg text-slate-50'>
-//       <code className={`language-${node?.language || 'text'}`}>{node?.code}</code>
-//       {/* <SyntaxHighlighter className={`language-${node?.language || 'text'}`}>{node?.code}</SyntaxHighlighter> */}
-//     </pre>
-
-//     // <pre className='lg:w-3/4 ml-auto mr-auto bg-slate-900 p-8 rounded-md text-lg text-slate-50'>
-//     //   <CodeInput
-//     //     code={node.code}
-//     //     language={node.language || 'javascript'}
-//     //   />
-//     // </pre>
-//   );
-// };
 
 const serializers = {
   types: {
@@ -80,7 +38,7 @@ async function Post({ params: { slug } }: Props) {
   }
   `;
 
-  const post: Post = await client.fetch(query, { slug });
+  const post: PostData = await client.fetch(query, { slug });
   // console.log('Post data:', post);
 
   // Extracting the code blocks from post.body

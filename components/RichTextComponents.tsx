@@ -1,10 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import urlFor from '@/lib/urlFor';
-// import { Code } from '@/typings';
-// import SyntaxHighlighter from 'react-syntax-highlighter';
-
-// Refractor.registerLanguage(js);
 
 export const RichTextComponents = {
   types: {
@@ -20,53 +16,6 @@ export const RichTextComponents = {
         </div>
       );
     },
-
-    // code: (props: any) => (
-    //   <div className='my-2'>
-    //     <SyntaxHighlighter language={props.node.language}>{props.node.code}</SyntaxHighlighter>
-    //   </div>
-    // ),
-
-    // code: ({ node }: any) => {
-    //   if (!node || !node.code) {
-    //     return null;
-    //   }
-    //   const { language, code, highlightedLines } = node;
-    //   console.log(code);
-
-    //   return (
-    //     <Code
-    //       language={language}
-    //       code={code}
-    //       highlightedLines={highlightedLines}
-    //     />
-    //   );
-    // },
-
-    // code: ({ node }: any) => (
-    //   <pre className='lg:w-3/4 ml-auto mr-auto h-40 bg-amber-200'>
-    //     <code className={`language-${node?.language || 'text'}`}>{node?.code}</code>
-    //   </pre>
-    // ),
-
-    // code: ({ node }: any) => {
-    //   // Check the node data in the console
-    //   console.log('Code node:', node);
-
-    //   return (
-    //     <pre className='lg:w-3/4 ml-auto mr-auto h-40 bg-amber-200'>
-    //       <code className={`language-${node?.language || 'text'}`}>{node?.code}</code>
-    //     </pre>
-    //   );
-    // },
-
-    // code: (
-    //   { node }: any
-    // ) => (
-    //   <pre className='lg:w-3/4 ml-auto mr-auto h-40 bg-amber-200'>
-    //     <code className={`language-${node?._type === 'code' && node?.language ? node.language : 'text'}`}>{node?._type === 'code' && node?.code}</code>
-    //   </pre>
-    // ),
   },
   // prettier-ignore
   list: {

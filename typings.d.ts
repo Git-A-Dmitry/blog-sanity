@@ -1,4 +1,4 @@
-export * from './typings';
+// export * from './typings';
 
 type Base = {
   _createdAt: string;
@@ -8,7 +8,7 @@ type Base = {
   _updatedAt: string;
 };
 
-interface Post extends Base {
+interface PostData extends Base {
   author: Author;
   // body: Block[];
   body: Array<Block | Code>;
