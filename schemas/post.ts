@@ -4,6 +4,7 @@ export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+
   fields: [
     defineField({
       name: 'title',
@@ -55,6 +56,14 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    // defineField({
+    //   type: 'code',
+    //   name: 'myCodeField',
+    //   title: 'My code field',
+    //   options: {
+    //     language: 'javascript',
+    //   },
+    // }),
   ],
 
   preview: {

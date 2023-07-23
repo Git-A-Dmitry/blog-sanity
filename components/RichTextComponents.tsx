@@ -1,6 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import urlFor from '@/lib/urlFor';
+// import { Code } from '@/typings';
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+
+// Refractor.registerLanguage(js);
 
 export const RichTextComponents = {
   types: {
@@ -16,6 +20,53 @@ export const RichTextComponents = {
         </div>
       );
     },
+
+    // code: (props: any) => (
+    //   <div className='my-2'>
+    //     <SyntaxHighlighter language={props.node.language}>{props.node.code}</SyntaxHighlighter>
+    //   </div>
+    // ),
+
+    // code: ({ node }: any) => {
+    //   if (!node || !node.code) {
+    //     return null;
+    //   }
+    //   const { language, code, highlightedLines } = node;
+    //   console.log(code);
+
+    //   return (
+    //     <Code
+    //       language={language}
+    //       code={code}
+    //       highlightedLines={highlightedLines}
+    //     />
+    //   );
+    // },
+
+    // code: ({ node }: any) => (
+    //   <pre className='lg:w-3/4 ml-auto mr-auto h-40 bg-amber-200'>
+    //     <code className={`language-${node?.language || 'text'}`}>{node?.code}</code>
+    //   </pre>
+    // ),
+
+    // code: ({ node }: any) => {
+    //   // Check the node data in the console
+    //   console.log('Code node:', node);
+
+    //   return (
+    //     <pre className='lg:w-3/4 ml-auto mr-auto h-40 bg-amber-200'>
+    //       <code className={`language-${node?.language || 'text'}`}>{node?.code}</code>
+    //     </pre>
+    //   );
+    // },
+
+    // code: (
+    //   { node }: any
+    // ) => (
+    //   <pre className='lg:w-3/4 ml-auto mr-auto h-40 bg-amber-200'>
+    //     <code className={`language-${node?._type === 'code' && node?.language ? node.language : 'text'}`}>{node?._type === 'code' && node?.code}</code>
+    //   </pre>
+    // ),
   },
   // prettier-ignore
   list: {
@@ -29,25 +80,25 @@ export const RichTextComponents = {
   // prettier-ignore
   block: {
     h1: ({children}: any) => (
-      <h1 className='lg:w-3/4 ml-auto mr-auto text-5xl py-10 font-bold'>{children}</h1>
+      <h1 className='lg:w-3/4 ml-auto mr-auto text-5xl text-center py-10 font-bold text-slate-200'>{children}</h1>
     ),
     h2: ({children}: any) => (
-      <h2 className='lg:w-3/4 ml-auto mr-auto'>{children}</h2>
+      <h2 className='lg:w-3/4 ml-auto mr-auto text-4xl text-center py-10 font-bold'>{children}</h2>
     ),
     h3: ({children}: any) => (
-      <h3 className='lg:w-3/4 ml-auto mr-auto text-3xl text-center py-10 font-bold'>{children}</h3>
+      <h3 className='lg:w-3/4 ml-auto mr-auto text-3xl text-center py-10 font-bold text-slate-200'>{children}</h3>
     ),
     h4: ({children}: any) => (
-      <h4 className='lg:w-3/4 ml-auto mr-auto text-2xl py-4 font-bold'>{children}</h4>
+      <h4 className='lg:w-3/4 ml-auto mr-auto text-2xl py-4 font-bold text-lime-200'>{children}</h4>
     ),
 
     normal: ({children}: any) => (
-      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.2rem]'>{children}</p>
+      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.4rem] text-slate-200'>{children}</p>
     ),
 
 
     blockquote: ({children}: any) => (
-      <blockquote className='lg:w-3/4 ml-auto mr-auto border-l-[#F7AB0A] border-l-4 pl-5 py-5 my-5'>{children}</blockquote>
+      <blockquote className='lg:w-3/4 ml-auto mr-auto border-l-[#F7AB0A] border-l-4 pl-5 py-5 my-5 text-slate-300 text-[1.4rem]'>{children}</blockquote>
     )
   },
 
@@ -60,12 +111,26 @@ export const RichTextComponents = {
           href={value.href}
           rel={rel}
           target='_blank'
-          className='text-xs text-blue-600 underline decoration-blue-600 hover:text-blue-800 hover:decoration-blue-800'
+          className='text-md text-blue-600 underline decoration-blue-600 hover:text-blue-800 hover:decoration-blue-800'
           // className=underline decoration-[#64748b] hover:decoration-black'
         >
           {children}
         </Link>
       );
     },
+
+    // code: ({ children }: any) => <span className='w-40 ml-auto mr-auto text-blue-600 bg-amber-200'>{children}</span>,
+
+    highlight: ({ children }: any) => <span className='bg-amber-200'>{children}</span>,
+
+    strong: ({ children }: any) => <span className='text-amber-400'>{children}</span>,
   },
+
+  // code: {
+  //   code: ({ children }: any) => (
+  //     <pre className='bg-amber-200'>
+  //       <code>{children}</code>
+  //     </pre>
+  //   ),
+  // },
 };

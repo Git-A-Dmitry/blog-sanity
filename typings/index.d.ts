@@ -1,4 +1,4 @@
-export * from './typings';
+export * from '../typings';
 
 type Base = {
   _createdAt: string;
@@ -19,7 +19,7 @@ interface Post extends Base {
   description: string;
 }
 
-export interface Code {
+interface Code {
   _type: 'code'; // Specify the _type for the code type
   code: any;
   // code: string;

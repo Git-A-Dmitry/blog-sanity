@@ -1,4 +1,5 @@
 import '../globals.css';
+import '../../styles/prism-dracula.css';
 
 export const metadata = {
   title: 'Next.js',

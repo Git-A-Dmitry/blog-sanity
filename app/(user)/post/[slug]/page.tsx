@@ -1,15 +1,70 @@
 import Image from 'next/image';
 import { client } from '@/lib/sanity.client';
 import urlFor from '@/lib/urlFor';
-// import category from '@/schemas/category';
 import groq from 'groq';
 import { PortableText } from '@portabletext/react';
 import { RichTextComponents } from '@/components/RichTextComponents';
+import BlockContent from '@sanity/block-content-to-react';
+// import Prism from 'prismjs';
+// import 'prismjs/components/prism-javascript';
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+import ClientCodeBlock from '@/components/ClientCodeBlock';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 type Props = {
   params: {
     slug: string;
   };
+};
+
+// interface CodeInputProps {
+//   code: string;
+//   language: string;
+// }
+
+// const CodeInput: React.FC<CodeInputProps> = (props) => {
+//   const { code, language } = props;
+//   return (
+//     <SyntaxHighlighter
+//       language={language}
+//       style={a11yDark}
+//     >
+//       {code}
+//     </SyntaxHighlighter>
+//   );
+// };
+
+// const CodeBlock = ({ node }: { node: any }) => {
+//   useEffect(() => {
+//     if (typeof window !== 'undefined') {
+//       Prism.highlightAll();
+//     }
+//   }, []);
+
+//   if (!node || !node.code) {
+//     return null;
+//   }
+
+//   return (
+//     <pre className='lg:w-3/4 ml-auto mr-auto bg-slate-900 p-8 rounded-md text-lg text-slate-50'>
+//       <code className={`language-${node?.language || 'text'}`}>{node?.code}</code>
+//       {/* <SyntaxHighlighter className={`language-${node?.language || 'text'}`}>{node?.code}</SyntaxHighlighter> */}
+//     </pre>
+
+//     // <pre className='lg:w-3/4 ml-auto mr-auto bg-slate-900 p-8 rounded-md text-lg text-slate-50'>
+//     //   <CodeInput
+//     //     code={node.code}
+//     //     language={node.language || 'javascript'}
+//     //   />
+//     // </pre>
+//   );
+// };
+
+const serializers = {
+  types: {
+    // code: CodeBlock,
+    code: ClientCodeBlock,
+  },
 };
 
 // revalidate the page every 60 seconds
@@ -26,29 +81,36 @@ async function Post({ params: { slug } }: Props) {
   `;
 
   const post: Post = await client.fetch(query, { slug });
-  // console.log(post);
+  // console.log('Post data:', post);
+
+  // Extracting the code blocks from post.body
+  const codeBlocks = post.body.filter((block: any) => block._type === 'code');
+  // Extracting the text blocks from post.body
+  const textBlocks = post.body.filter((block: any) => block._type !== 'code');
 
   return (
     // <div>Post: {slug}</div>
-    <article className='px-10 pb-28 bg-slate-200'>
+    <article className='px-10 pb-28 bg-zinc-900'>
+      {/* <article className='px-10 pb-28 bg-slate-200'> */}
       <section className='space-y-2 text-white'>
-        {/* <section className='space-y-2 border border-[#F7AB0A] text-white'> */}
-        <div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
-          <div className='absolute top-0 w-full h-full opacity-6 p-10'>
-            {/* <div className='absolute top-0 w-full h-full opacity-6 blur-sm p-10'> */}
+        {/* <section className='space-y-2 border border-slate-900 text-white rounded-sm'> */}
+        <div className='relative min-h-56 flex flex-col md:flex-row justify-between pb-80'>
+          {/* <div className='relative min-h-56 flex flex-col md:flex-row justify-between'> */}
+          <div className='absolute top-1 w-full h-full opacity-2 p-10'>
+            {/* <div className='absolute top-1 w-full h-full opacity-2 p-10 blur-sm'> */}
             <Image
-              className='object-cover object-center mx-auto'
+              className='object-cover object-center mx-auto rounded-md'
               src={urlFor(post.mainImage).url()}
               alt={post.author.name}
               fill
             />
           </div>
 
-          <section className='mt-2 p-5 w-full rounded-md z-10'>
-            {/* <section className='mt-2 p-5 bg-[#F7AB0A] w-full'> */}
+          {/* <section className='mt-2 p-5 w-full z-5 bg-slate-600'> */}
+          <section className='mt-2 p-5 w-full z-10'>
             <div className='flex flex-col md:flex-row justify-between gap-y-5'>
               <div>
-                <h1 className='text-4xl font-extrabold'>{post.title}</h1>
+                {/* <h1 className='text-4xl font-extrabold'>{post.title}</h1> */}
 
                 <p>
                   {new Date(post._createdAt).toLocaleDateString('en-US', {
@@ -60,42 +122,85 @@ async function Post({ params: { slug } }: Props) {
               </div>
 
               <div className='flex items-center space-x-3'>
-                <Image //
-                  className='rounded-full'
+                <Image
+                  className='rounded-full mr-5'
                   src={urlFor(post.author.image).url()}
                   alt={post.author.name}
                   height={70}
                   width={70}
                 />
 
-                <div className='w-44'>
+                {/* <div className='w-44'>
                   <h3 className='text-lg font-bold'>{post.author.name}</h3>
                   <div>{}</div>
-                </div>
+                </div> */}
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h2 className='italic pt-10'>{post.description}</h2>
               <div className='flex items-center justify-end mt-auto space-x-2'>
-                {post.categories.map((category) => (
-                  <p //
+                {post.categories.map((category: any) => (
+                  <p
                     key={category._id}
-                    className='bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold mt-4'
+                    className='bg-gray-800 text-[#F7AB0A] px-3 py-1 rounded-full text-sm font-semibold mt-4'
                   >
                     {category.title}
                   </p>
                 ))}
               </div>
-            </div>
+            </div> */}
           </section>
         </div>
       </section>
 
-      <PortableText
-        value={post.body}
-        components={RichTextComponents}
-      />
+      {/* <div className='mt-2 px-10 py-6 bg-white rounded-md'>
+        {post.body.map((block: any, index: number) => {
+          if (block._type === 'code') {
+            return (
+              <BlockContent
+                key={index}
+                blocks={[block]}
+                serializers={serializers}
+                projectId='xxxxxxxx'
+                dataset='production'
+              />
+            );
+          } else {
+            return (
+              <PortableText
+                key={index}
+                value={[block]}
+                components={RichTextComponents}
+              />
+            );
+          }
+        })}
+      </div> */}
+
+      {/* post block */}
+      <div className='mt-2 px-10 py-6 bg-zinc-900 rounded-md'>
+        {post.body.map((block: any, index: number) => {
+          if (block._type === 'code') {
+            return (
+              // <CodeBlock
+              <ClientCodeBlock
+                key={index}
+                node={block}
+                style={dracula}
+              />
+            );
+          } else {
+            return (
+              <PortableText
+                key={index}
+                value={[block]}
+                components={RichTextComponents}
+              />
+            );
+          }
+        })}
+      </div>
     </article>
   );
 }
