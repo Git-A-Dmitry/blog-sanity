@@ -42,7 +42,7 @@ export const RichTextComponents = {
     ),
 
     normal: ({children}: any) => (
-      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.5rem] text-slate-200'>{children}</p>
+      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.4rem] text-slate-200 font-Poppins font-light'>{children}</p>
     ),
 
 

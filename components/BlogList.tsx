@@ -6,21 +6,24 @@ import { PostData } from '@/typings';
 
 type Props = {
   posts: PostData[];
+  // isMainPage: boolean;
 };
 
+// export default function BlogList({ posts, isMainPage }: Props) {
 export default function BlogList({ posts }: Props) {
   return (
-    <div className='bg-zinc-800'>
+    <div className='bg-[#080e10]'>
       <hr className='mb-10 h-2 bg-slate-200' />
       {/* <hr className='border-[#F7AB0A] mb-10' /> */}
 
-      <div className='grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pt-10 pb-20 bg-zinc-700'>
+      <div className='grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pt-10 pb-20'>
         {posts.map((post) => (
           <ClientSideRoute
             key={post._id}
             route={`/post/${post.slug.current}`}
           >
-            <div className='flex flex-col group cursor-pointer p-2 border-2 border-slate-200 rounded-md drop-shadow-md'>
+            {/* <div className='flex flex-col group cursor-pointer p-2 border-2 border-slate-200 rounded-md drop-shadow-md'> */}
+            <div className='flex flex-col group cursor-pointer p-2 rounded-md drop-shadow-md'>
               <div className='relative w-full h-80 drop-shadow-xl group-hover:scale-100 transition-transform duration-200 ease-out'>
                 <Image
                   className='object-cover object-left lg:object-center rounded-md'

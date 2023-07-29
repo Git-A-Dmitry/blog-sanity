@@ -4,6 +4,7 @@ import { client } from '../../lib/sanity.client';
 import PreviewSuspense from '../../components/PreviewSuspense';
 import PreviewBlogList from '@/components/PreviewBlogList';
 import BlogList from '@/components/BlogList';
+// import RootLayout from '../(admin)/layout';
 // import preview from '../pages/api/preview';
 
 const query = groq`
@@ -18,6 +19,8 @@ const query = groq`
 // export const revalidate = 60;
 
 export default async function HomePage() {
+  // const isMainPage = true;
+
   if (previewData()) {
     return (
       <PreviewSuspense
@@ -35,7 +38,14 @@ export default async function HomePage() {
 
   const posts = await client.fetch(query);
 
-  return <BlogList posts={posts} />;
+  return (
+    // <RootLayout isMainPage={isMainPage}>
+    <BlogList
+      posts={posts}
+      // isMainPage={true}
+    />
+    // </RootLayout>
+  );
 
   // return (
   //   <div>

@@ -2,12 +2,10 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    // <header className='flex items-center justify-between space-x-2 font-bold px-10 py-5 bg-slate-200'>
     <header className='flex items-center justify-between space-x-2 font-bold px-10 py-5 bg-zinc-800'>
       <div className='flex items-center space-x-2'>
         <Link href='/'>
           <h1 className='text-2xl text-slate-300'>HOME</h1>
-          {/* <h1 className='text-2xl text-cyan-600'>HOME</h1> */}
         </Link>
       </div>
 
