@@ -21,19 +21,19 @@ const query = groq`
 export default async function HomePage() {
   // const isMainPage = true;
 
-  if (previewData()) {
-    return (
-      <PreviewSuspense
-        fallback={
-          <div role='status'>
-            <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data</p>
-          </div>
-        }
-      >
-        <PreviewBlogList query={query} />
-      </PreviewSuspense>
-    );
-  }
+  // if (previewData()) {
+  //   return (
+  //     <PreviewSuspense
+  //       fallback={
+  //         <div role='status'>
+  //           <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data</p>
+  //         </div>
+  //       }
+  //     >
+  //       <PreviewBlogList query={query} />
+  //     </PreviewSuspense>
+  //   );
+  // }
   // <div className='text-red-700'>Preview mode</div>;
 
   const posts = await client.fetch(query);
