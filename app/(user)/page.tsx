@@ -4,7 +4,6 @@ import { client } from '../../lib/sanity.client';
 import PreviewSuspense from '../../components/PreviewSuspense';
 import PreviewBlogList from '@/components/PreviewBlogList';
 import BlogList from '@/components/BlogList';
-// import RootLayout from '../(admin)/layout';
 // import preview from '../pages/api/preview';
 
 const query = groq`
@@ -19,31 +18,30 @@ const query = groq`
 // export const revalidate = 60;
 
 export default async function HomePage() {
-  // const isMainPage = true;
-
   if (previewData()) {
     return (
-      <PreviewSuspense
-        fallback={
-          <div role='status'>
-            <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data...</p>
-          </div>
-        }
-      >
-        <PreviewBlogList query={query} />
-      </PreviewSuspense>
+      <>
+        <div className='text-red-700'>Preview mode</div>
+        <PreviewSuspense
+          fallback={
+            <div role='status'>
+              <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data...</p>
+            </div>
+          }
+        >
+          <PreviewBlogList query={query} />
+        </PreviewSuspense>
+      </>
     );
   }
-  // <div className='text-red-700'>Preview mode</div>;
 
   const posts = await client.fetch(query);
+  console.log(posts.length);
 
   return (
-    // <RootLayout isMainPage={isMainPage}>
-    <BlogList
-      posts={posts}
-      // isMainPage={true}
-    />
-    // </RootLayout>
+    <div>
+      <h1 className='text-white'>Not in Preview Mode</h1>
+      <BlogList posts={posts} />;
+    </div>
   );
 }
