@@ -1,5 +1,3 @@
-// export * from './typings';
-
 type Base = {
   _createdAt: string;
   _id: string;
@@ -10,8 +8,8 @@ type Base = {
 
 interface PostData extends Base {
   author: Author;
-  // body: Block[];
-  body: Array<Block | Code>;
+  body: Block[];
+  // body: Array<Block | Code>;
   categories: Category[];
   mainImage: Image;
   slug: Slug;
@@ -22,7 +20,6 @@ interface PostData extends Base {
 export interface Code {
   _type: 'code'; // Specify the _type for the code type
   code: any;
-  // code: string;
   language?: string; // Make 'language' property optional
 }
 
@@ -48,7 +45,8 @@ interface Slug {
   current: string;
 }
 
-interface Blog {
+// interface Blog {
+interface Block {
   _key: string;
   _type: 'block';
   // _type: 'code';

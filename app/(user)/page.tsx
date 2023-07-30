@@ -8,11 +8,11 @@ import BlogList from '@/components/BlogList';
 // import preview from '../pages/api/preview';
 
 const query = groq`
-  *[_type=='post'] {
+  *[_type=='post'] {  // Get me all of the posts
     ...,
     author->,
     categories[]->
-  } | order(_createAt desc)
+  } | order(_createdAt desc) // descending order
 `;
 
 // revalidate the page every 60 seconds
@@ -26,7 +26,7 @@ export default async function HomePage() {
       <PreviewSuspense
         fallback={
           <div role='status'>
-            <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data</p>
+            <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data...</p>
           </div>
         }
       >
@@ -46,10 +46,4 @@ export default async function HomePage() {
     />
     // </RootLayout>
   );
-
-  // return (
-  //   <div>
-  //     <h1 className='text-xl'>Not in Preview mode</h1>
-  //   </div>
-  // );
 }
