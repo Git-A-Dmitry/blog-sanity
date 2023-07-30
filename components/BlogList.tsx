@@ -13,10 +13,10 @@ type Props = {
 export default function BlogList({ posts }: Props) {
   return (
     <div className='bg-[#080e10]'>
-      <hr className='mb-10 h-2 bg-slate-200' />
+      <hr className='mb-10 ml-auto mr-auto h-2 md:w-full w-4/5 bg-slate-200' />
       {/* <hr className='border-[#F7AB0A] mb-10' /> */}
 
-      <div className='grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pt-10 pb-20'>
+      <div className='grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pt-10 pb-20 rounded-md'>
         {posts.map((post) => (
           <ClientSideRoute
             key={post._id}
@@ -24,14 +24,14 @@ export default function BlogList({ posts }: Props) {
           >
             {/* <div className='flex flex-col group cursor-pointer p-2 border-2 border-slate-200 rounded-md drop-shadow-md'> */}
             <div className='flex flex-col group cursor-pointer p-2 rounded-md drop-shadow-md'>
-              <div className='relative w-full h-80 drop-shadow-xl group-hover:scale-100 transition-transform duration-200 ease-out'>
+              <div className='relative w-full h-80 hover:drop-shadow-2xl  group-hover:scale-105 transition-transform duration-200 ease-out'>
                 <Image
                   className='object-cover object-left lg:object-center rounded-md'
                   src={urlFor(post.mainImage).url()}
                   alt={post.author.name}
                   fill
                 />
-                <div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between'>
+                <div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg drop-shadow-lg text-white p-5 flex justify-between rounded-md'>
                   <div>
                     <p className='font-bold'>{post.title}</p>
 

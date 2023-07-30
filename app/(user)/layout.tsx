@@ -17,12 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className='max-w-7xl mx-auto'>
         <Header />
-        {/* <Hero /> */}
+        <Banner />
         {/* children is what's in page.tsx and below */}
-        <div className='max-w-7xl mx-auto'>
-          <Banner />
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
