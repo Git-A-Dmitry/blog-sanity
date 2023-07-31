@@ -2,10 +2,11 @@ import urlFor from '@/lib/urlFor';
 import Image from 'next/image';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 import ClientSideRoute from './ClientSideRoute';
-import { PostData } from '@/typings';
+// import { PostData } from '@/typings';
+import { Post } from '@/typings';
 
 type Props = {
-  posts: PostData[];
+  posts: Post[];
   // isMainPage: boolean;
 };
 
