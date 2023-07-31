@@ -45,9 +45,9 @@ async function Post({ params: { slug } }: Props) {
   // console.log('Post data:', post);
 
   // Extracting the code blocks from post.body
-  const codeBlocks = post.body.filter((block: any) => block._type === 'code');
+  // const codeBlocks = post.body.filter((block: any) => block._type === 'code');
   // Extracting the text blocks from post.body
-  const textBlocks = post.body.filter((block: any) => block._type !== 'code');
+  // const textBlocks = post.body.filter((block: any) => block._type !== 'code');
 
   // const { scrollYProgress } = useScroll();
 
@@ -156,22 +156,9 @@ async function Post({ params: { slug } }: Props) {
           }
         })}
       </div>
+
       <div className='flex items-center space-x-2'>
         <Link href='/'>
-          {/* <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth='1.5'
-              stroke='currentColor'
-              className='w-8 h-8 fixed bottom-2 left-0 md:bottom-10 md:left-10 text-slate-300'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5'
-              />
-            </svg> */}
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'

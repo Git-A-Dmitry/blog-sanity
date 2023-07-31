@@ -7,6 +7,7 @@ import { Post } from '@/typings';
 
 type Props = {
   posts: Post[];
+  // posts: PostData[];
   // isMainPage: boolean;
 };
 
