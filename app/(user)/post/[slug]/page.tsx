@@ -53,7 +53,7 @@ async function Post({ params: { slug } }: Props) {
 
   return (
     // <div>Post: {slug}</div>
-    <article className=' bg-[#080e10]'>
+    <article className='bg-[#080e10]'>
       {/* <article className='px-10 pb-28 bg-slate-200'> */}
       <section className='space-y-2 text-white'>
         {/* <section className='space-y-2 border border-slate-900 text-white rounded-sm'> */}
@@ -67,7 +67,7 @@ async function Post({ params: { slug } }: Props) {
               fill
             />
           </div>
-          <section className='mt-2 p-5 w-full z-10 ounded-md'>
+          <section className='mt-2 p-5 w-full z-10 rounded-md'>
             {/* <section className='mt-2 p-5 w-full z-10 bg-zinc-700 rounded-md'> */}
             <div className='flex flex-col md:flex-row justify-between gap-y-5'>
               <div>
@@ -134,7 +134,7 @@ async function Post({ params: { slug } }: Props) {
           })}
         </div> */}
       {/* post block */}
-      <div className='mt-2 lg:px-10 py-6 bg-zinc-800 rounded-md'>
+      <div className='mt-2 px-5 sm:px-20 lg:px-10 py-6 bg-zinc-800 rounded-md'>
         {post.body.map((block: any, index: number) => {
           if (block._type === 'code') {
             return (
@@ -157,7 +157,7 @@ async function Post({ params: { slug } }: Props) {
         })}
       </div>
 
-      <div className='flex items-center space-x-2'>
+      <div className='hidden md:flex items-center space-x-2'>
         <Link href='/'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
