@@ -1,6 +1,6 @@
 import RootLayout from '@/app/(admin)/layout';
 import Image from 'next/image';
-import { PostData } from '@/typings';
+import { Post } from '@/typings';
 import { client } from '@/lib/sanity.client';
 import urlFor from '@/lib/urlFor';
 import groq from 'groq';
@@ -41,7 +41,7 @@ async function Post({ params: { slug } }: Props) {
   }
   `;
 
-  const post: PostData = await client.fetch(query, { slug });
+  const post: Post = await client.fetch(query, { slug });
   // console.log('Post data:', post);
 
   // Extracting the code blocks from post.body
