@@ -20,27 +20,24 @@ const query = groq`
 export default async function HomePage() {
   if (previewData()) {
     return (
-      <>
-        <div className='text-red-700'>Preview mode</div>
-        <PreviewSuspense
-          fallback={
-            <div role='status'>
-              <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data...</p>
-            </div>
-          }
-        >
-          <PreviewBlogList query={query} />
-        </PreviewSuspense>
-      </>
+      <PreviewSuspense
+        fallback={
+          <div role='status'>
+            <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>Loading Preview Data...</p>
+          </div>
+        }
+      >
+        <PreviewBlogList query={query} />
+      </PreviewSuspense>
     );
   }
 
   const posts = await client.fetch(query);
-  console.log(posts.length);
+  // console.log(posts.length);
 
   return (
     <div>
-      <h1 className='text-white'>Not in Preview Mode</h1>
+      {/* <h1 className='text-white'>Not in Preview Mode</h1> */}
       <BlogList posts={posts} />;
     </div>
   );

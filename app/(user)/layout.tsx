@@ -1,6 +1,6 @@
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
+// import Hero from '@/components/Hero';
 import '../globals.css';
 
 // type Props = {

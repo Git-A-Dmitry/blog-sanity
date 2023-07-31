@@ -8,8 +8,7 @@ export const getDefaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaT
       S.view
         .component(Iframe)
         .options({
-          url: `${process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'}`,
-          // url: `${process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'}/api/preview`,
+          url: `${process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'}/api/preview`,
           defaultSize: `desktop`,
           reload: { button: true },
           attributes: {},
