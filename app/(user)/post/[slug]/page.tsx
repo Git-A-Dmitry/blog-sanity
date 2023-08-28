@@ -134,7 +134,7 @@ async function Post({ params: { slug } }: Props) {
           })}
         </div> */}
       {/* post block */}
-      <div className='mt-2 px-5 sm:px-20 lg:px-10 py-6 bg-zinc-800 rounded-md'>
+      <div className='mt-2 px-5 sm:px-20 lg:px-10 py-6 bg-zinc-950 rounded-md'>
         {post.body.map((block: any, index: number) => {
           if (block._type === 'code') {
             return (

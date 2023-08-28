@@ -6,7 +6,8 @@ export default function Banner() {
         {/* <h2 className='mt-5 md:mt-10 text-yellow-50'>This React app was made for the sake of practicing Next.js, TypeScript, and Sanity.</h2> */}
       </div>
 
-      <p className='mt-5 md:mt-2 text-center md:text-left text-gray-300 max-w-sm'>Exploring the Internet | Front-end technologies | Perspectives on current events and more...</p>
+      <p className='mt-5 md:mt-2 text-center md:text-left text-gray-300 max-w-sm'>Exploring the Internet | Front-end technologies</p>
+      {/* <p className='mt-5 md:mt-2 text-center md:text-left text-gray-300 max-w-sm'>Exploring the Internet | Front-end technologies | Perspectives on current events and more...</p> */}
     </div>
   );
 }

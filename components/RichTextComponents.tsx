@@ -35,19 +35,19 @@ export const RichTextComponents = {
       <h2 className='lg:w-3/4 ml-auto mr-auto text-4xl text-center py-10 font-bold'>{children}</h2>
     ),
     h3: ({children}: any) => (
-      <h3 className='lg:w-3/4 ml-auto mr-auto text-3xl text-center py-10 font-bold text-slate-200'>{children}</h3>
+      <h3 className='lg:w-3/4 ml-auto mr-auto text-3xl text-center py-10 font-bold text-slate-300'>{children}</h3>
     ),
     h4: ({children}: any) => (
-      <h4 className='lg:w-3/4 ml-auto mr-auto text-2xl py-4 font-bold text-lime-200'>{children}</h4>
+      <h4 className='lg:w-3/4 ml-auto mr-auto text-2xl py-4 font-bold text-slate-300'>{children}</h4>
     ),
 
     normal: ({children}: any) => (
-      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.3rem] text-slate-200 font-Poppins font-light'>{children}</p>
+      <p className='lg:w-3/4 ml-auto mr-auto py-2 text-[1.1rem] lg:text-[1.3rem] text-slate-200 font-Poppins font-light'>{children}</p>
     ),
 
 
     blockquote: ({children}: any) => (
-      <blockquote className='lg:w-3/4 ml-auto mr-auto border-l-[#F7AB0A] border-l-4 pl-5 py-5 my-5 text-slate-300 text-[1.4rem]'>{children}</blockquote>
+      <blockquote className='lg:w-3/4 ml-auto mr-auto border-l-[#F7AB0A] border-l-4 pl-5 py-5 my-5 text-slate-300 text-[1.2rem] lg:text-[1.4rem]'>{children}</blockquote>
     )
   },
 

@@ -9,7 +9,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <div>
+      {/* <div>
         <Link
           href='https://dmitry-web-portfolio.vercel.app'
           className='px-5 py-3 uppercase md:text-base bg-gray-800 border border-slate-100 text-[#F7AB0A] flex items-center rounded-md text-center hover:border-violet-800'
@@ -18,7 +18,7 @@ export default function Header() {
         >
           Portfolio
         </Link>
-      </div>
+      </div> */}
     </header>
   );
 }
